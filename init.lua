@@ -1,7 +1,7 @@
 require("config.lazy")
 
 -- Load .vimrc file
-vim.cmd("source ./.vimrc")
+vim.cmd("runtime ./.vimrc")
 
 -- Set Color Theme (Scheme)
 vim.cmd("colorscheme dayfox")
