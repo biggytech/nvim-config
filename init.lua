@@ -8,6 +8,7 @@ require("config.lazy")
 vim.cmd("runtime ./.vimrc")
 
 -- Set Color Theme (Scheme)
+vim.api.nvim_set_option_value("background", "light", {})
 vim.cmd("colorscheme edge")
 
 -- Enable Telescope (finder / search) keymaps
