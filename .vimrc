@@ -26,3 +26,10 @@ augroup Prettier
   au!
   au BufWritePre *.tsx,*.ts,*.js,*.jsx,*.css,*.scss PrettierAsync
 augroup END
+
+" This automatically folds files that you open,
+" based on indent, for everything indented for more than 1 level.
+" The foldclose option makes the fold automatically re-close after you navigate out of the fold.
+set foldmethod=indent
+set foldlevel=0
+set foldclose=all
