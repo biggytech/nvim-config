@@ -1,12 +1,26 @@
 # Leader
 <Space>
 
+# Enter / Exit Insert mode
+<C-Space>
+
 # Find - F
 | In current file | `/`          | Vim / Default          |
 | In Files        | `<leader>ff` | Telescope / Configured |
 | In Project      | `<leader>fp` | Telescope / Configured |
 
+# Autocompletion
+| Navigate suggestions | `<Up>/<Down>` | Blink.Cmp / Default         |
+| Select suggestion | `<Enter>` | Blink.Cmp / Default / Enter keymap |
+
+
+
 # Not set yet
+Show Context Actions (like auto-import)
+Ctrl + .
+Show Hover Info
+Ctrl + ,
+
 UI - U
 Toggle Zen Mode
 Z
@@ -96,8 +110,6 @@ Open Projects
 P
 
 Search – F
-Search in File
-F
 Replace in File
 R
     Replace Occurence
@@ -146,12 +158,6 @@ Switch Tabs
 Ctrl + Tab
 Reopen Closed Tab
 Ctrl + Shift + T
-Show Context Actions (like auto-import)
-Ctrl + .
-Show Hover Info
-Ctrl + ,
-Enter / Exit Vim Insert Mode
-Ctrl + Space
 
 
 Snippets (Live Templates)
