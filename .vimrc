@@ -20,3 +20,4 @@ set number relativenumber
 
 " Highlight Syntax
 syntax on
+
