@@ -13,8 +13,13 @@ vim.cmd("colorscheme edge")
 -- Enable Telescope (finder / search) keymaps
 local telescope = require('telescope.builtin')
 vim.keymap.set('n', '<leader>fp', telescope.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>ff', function(opts)
+vim.keymap.set('n', '<leader>ff', function()
 	telescope.live_grep({
 		glob_pattern = { "**/*", "!**/test/**/*", "!**/.idea/**/*", "!**/.git/**/*" }
 	})
 end, { desc = 'Telescope live grep' })
+
+-- Command to copy file path
+vim.keymap.set('n', '<leader>p', function ()
+	vim.fn.setreg('+', vim.fn.expand('%:p'))
+end, { desc = 'Copy Current Buffer Path' })

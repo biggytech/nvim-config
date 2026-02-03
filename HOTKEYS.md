@@ -13,6 +13,12 @@
 | Navigate suggestions | `<Up>/<Down>` | Blink.Cmp / Default         |
 | Select suggestion | `<Enter>` | Blink.Cmp / Default / Enter keymap |
 
+# Navigation
+| Next / Forward Buffer | `<C-o>` | Vim / Default |
+| Prev / Back Buffer    | `<C-i>` | Vim / Default |
+
+# Paths - P
+| Copy Current Buffer Path | `<leader>p` | Mine |
 
 
 # Not set yet
