@@ -18,7 +18,8 @@
 | Prev / Back Buffer    | `<C-i>` | Vim / Default |
 
 # Paths - P
-| Copy Current Buffer Path | `<leader>p` | Mine |
+| Copy Current Buffer Path          | `<leader>p` | Mine |
+| Copy Current Buffer Relative Path | `<leader>pr` | Mine |
 
 
 # Not set yet

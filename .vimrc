@@ -21,3 +21,8 @@ set number relativenumber
 " Highlight Syntax
 syntax on
 
+" Run Prettier on :w
+augroup Prettier
+  au!
+  au BufWritePre *.tsx,*.ts,*.js,*.jsx,*.css,*.scss PrettierAsync
+augroup END
