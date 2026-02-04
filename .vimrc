@@ -29,7 +29,13 @@ augroup END
 
 " This automatically folds files that you open,
 " based on indent, for everything indented for more than 1 level.
-" The foldclose option makes the fold automatically re-close after you navigate out of the fold.
-set foldmethod=indent
-set foldlevel=0
-set foldclose=all
+set foldmethod=syntax
+set foldlevel=2
+
+let g:javaScript_fold=1 "activate folding by JS syntax
+augroup jsFolds
+    autocmd!
+    autocmd FileType javascript,typescript,json syntax region braceFold start="{" end="}" transparent fold
+    autocmd FileType javascript,typescript,json syntax sync fromstart
+    autocmd FileType javascript,typescript,json set foldmethod=syntax
+augroup end
