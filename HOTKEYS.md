@@ -21,6 +21,13 @@
 | Copy Current Buffer Path          | `<leader>p` | Mine |
 | Copy Current Buffer Relative Path | `<leader>pr` | Mine |
 
+# Folding
+| Toggle a fold at the cursor    | `za` | Vim / Default |
+| Opens a fold at the cursor     | `zo` | Vim / Default |
+| Closes a fold under the cursor | `zc` | Vim / Default |
+| Move to start of open fold     | `[z` | Vim / Default |
+| Move to end of open fold       | `]z` | Vim / Default |
+
 
 # Not set yet
 Show Context Actions (like auto-import)
@@ -127,10 +134,6 @@ Alt + A
 Alt + L
 
 Editor – E
-Collapse Code Block
-[
-Expand Code Block
-]
 Rename Variable
 R
 Go to End Of Line
