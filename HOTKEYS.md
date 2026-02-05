@@ -5,28 +5,38 @@
 <C-Space>
 
 # Find - F
+| Name            | Command      | Where set            |
+|-----------------|---------------|-----------------------|
 | In current file | `/`          | Vim / Default          |
 | In Files        | `<leader>ff` | Telescope / Configured |
 | In Project      | `<leader>fp` | Telescope / Configured |
 
 # Autocompletion
-| Navigate suggestions | `<Up>/<Down>` | Blink.Cmp / Default         |
-| Select suggestion | `<Enter>` | Blink.Cmp / Default / Enter keymap |
+| Name                | Command      | Where set                         |
+|----------------------|---------------|------------------------------------|
+| Navigate suggestions | `<Up>/<Down>` | Blink.Cmp / Default                |
+| Select suggestion    | `<Enter>`     | Blink.Cmp / Default / Enter keymap |
 
 # Navigation
+| Name                 | Command | Where set    |
+|-----------------------|---------|---------------|
 | Next / Forward Buffer | `<C-o>` | Vim / Default |
 | Prev / Back Buffer    | `<C-i>` | Vim / Default |
 
 # Paths - P
-| Copy Current Buffer Path          | `<leader>p` | Mine |
-| Copy Current Buffer Relative Path | `<leader>pr` | Mine |
+| Name                            | Command      | Where set |
+|-----------------------------------|--------------|------------|
+| Copy Current Buffer Path          | `<leader>p`  | Mine       |
+| Copy Current Buffer Relative Path | `<leader>pr` | Mine       |
 
 # Folding
-| Toggle a fold at the cursor    | `za` | Vim / Default |
-| Opens a fold at the cursor     | `zo` | Vim / Default |
-| Closes a fold under the cursor | `zc` | Vim / Default |
-| Move to start of open fold     | `[z` | Vim / Default |
-| Move to end of open fold       | `]z` | Vim / Default |
+| Name                          | Command      | Where set    |
+|--------------------------------|---------------|---------------|
+| Toggle a fold at the cursor    | `za`          | Vim / Default |
+| Opens a fold at the cursor     | `zo`          | Vim / Default |
+| Closes a fold under the cursor | `zc`          | Vim / Default |
+| Move to start of open fold     | `[z`          | Vim / Default |
+| Move to end of open fold       | `]z`          | Vim / Default |
 
 
 # Not set yet
