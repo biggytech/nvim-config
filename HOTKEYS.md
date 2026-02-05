@@ -1,8 +1,14 @@
 # Leader
-<Space>
+`<Space>`
 
 # Enter / Exit Insert mode
-<C-Space>
+`<C-Space>`
+
+# Yank (Copy) - Y
+| Name                       | Command                 | Where set            |
+|-----------------------------|--------------------------|-----------------------|
+| Yank Lines                  | `yy`                     | Vim / Default         |
+| Yank From Line to Line      | `:<start>,<end>y<enter>` | Vim / Default         |
 
 # Find - F
 | Name            | Command      | Where set            |
