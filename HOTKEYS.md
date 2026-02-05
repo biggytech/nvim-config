@@ -10,6 +10,11 @@
 | Yank Lines                  | `yy`                     | Vim / Default         |
 | Yank From Line to Line      | `:<start>,<end>y<enter>` | Vim / Default         |
 
+# Insert in Normal mode
+| Name                       | Command               | Where set            |
+|-----------------------------|-----------------------|-----------------------|
+| Add blank line below current | `<Enter>`            | Mine         |
+
 # Find - F
 | Name            | Command      | Where set            |
 |-----------------|---------------|-----------------------|
