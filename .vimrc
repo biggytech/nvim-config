@@ -43,5 +43,3 @@ augroup end
 
 " Use <Enter> in Normal mode to add a blank line below current
 map <Enter> o<ESC>
-" Use <S-Enter> in Normal mode to add a blank line above current
-map <S-Enter> O<ESC>
