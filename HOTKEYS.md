@@ -48,7 +48,7 @@
 | Closes a fold under the cursor | `zc`          | Vim / Default |
 | Move to start of open fold     | `[z`          | Vim / Default |
 | Move to end of open fold       | `]z`          | Vim / Default |
-
+|  View cursor line (_helpful when folded_)       | `zv`          | Vim / Default |
 
 # Not set yet
 Show Context Actions (like auto-import)
