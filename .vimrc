@@ -24,13 +24,14 @@ syntax on
 " Run Prettier on :w
 augroup Prettier
   au!
-  au BufWritePre *.tsx,*.ts,*.js,*.jsx,*.css,*.scss set foldlevel=99 | PrettierAsync
+  " set foldlevel=99 is to fix Prettier truncating file when code folded
+  au BufWritePre *.tsx,*.ts,*.js,*.jsx,*.css,*.scss set foldlevel=99 | Prettier | set foldlevel=3
 augroup END
 
 " This automatically folds files that you open,
 " based on indent, for everything indented for more than 1 level.
 set foldmethod=syntax
-set foldlevel=2
+set foldlevel=3
 
 let g:javaScript_fold=1 "activate folding by JS syntax
 augroup jsFolds
