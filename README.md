@@ -1,3 +1,6 @@
+## How to install
+Just clone into `~/.config/nvim` and run NeoVim.
+
 ## Dependencies
 
 ## Features
