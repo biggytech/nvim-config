@@ -24,7 +24,7 @@ syntax on
 " Run Prettier on :w
 augroup Prettier
   au!
-  au BufWritePre *.tsx,*.ts,*.js,*.jsx,*.css,*.scss PrettierAsync
+  au BufWritePre *.tsx,*.ts,*.js,*.jsx,*.css,*.scss set foldlevel=99 | PrettierAsync
 augroup END
 
 " This automatically folds files that you open,
