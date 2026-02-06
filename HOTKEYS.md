@@ -19,8 +19,8 @@
 | Name            | Command      | Where set            |
 |-----------------|---------------|-----------------------|
 | In current file | `/`          | Vim / Default          |
-| In Files        | `<leader>ff` | Telescope / Configured |
-| In Project      | `<leader>fp` | Telescope / Configured |
+| In Files        | `<leader>ff` | Telescope / Mine |
+| In Project      | `<leader>fp` | Telescope / Mine |
 
 # Autocompletion
 | Name                | Command      | Where set                         |
@@ -28,11 +28,14 @@
 | Navigate suggestions | `<Up>/<Down>` | Blink.Cmp / Default                |
 | Select suggestion    | `<Enter>`     | Blink.Cmp / Default / Enter keymap |
 
-# Navigation
+# Navigation - N
 | Name                 | Command | Where set    |
 |-----------------------|---------|---------------|
 | Next / Forward Buffer | `<C-o>` | Vim / Default |
 | Prev / Back Buffer    | `<C-i>` | Vim / Default |
+| Go To Declaration | `<leader>nd` | Mine |
+| Go to Prev LSP error | `[d` | Vim / Default |
+| Go to Next LSP error | `]d` | Vim / Default |
 
 # Paths - P
 | Name                            | Command      | Where set |
@@ -48,11 +51,15 @@
 | Closes a fold under the cursor | `zc`          | Vim / Default |
 | Move to start of open fold     | `[z`          | Vim / Default |
 | Move to end of open fold       | `]z`          | Vim / Default |
-|  View cursor line (_helpful when folded_)       | `zv`          | Vim / Default |
+| View cursor line (_helpful when folded_) | `zv` | Vim / Default |
+
+# Editor - E
+| Name                            | Command      | Where set |
+|-----------------------------------|--------------|------------|
+| Rename Variable | `<leader>er` | Mine |
+| Show diagnostic info at cursor | `<C>.` | Mine |
 
 # Not set yet
-Show Context Actions (like auto-import)
-Ctrl + .
 Show Hover Info
 Ctrl + ,
 
@@ -137,8 +144,6 @@ O
 Navigation – N
 Go to Line
 L
-Go to Declaration
-D
 Back
 B
 Open Projects
@@ -154,9 +159,6 @@ Alt + A
     Exclude Occurence
 Alt + L
 
-Editor – E
-Rename Variable
-R
 Go to End Of Line
 Fn + Right Arrow
 Go to Start Of Line
