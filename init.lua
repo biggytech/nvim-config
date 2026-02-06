@@ -10,6 +10,8 @@ vim.cmd("runtime ./.vimrc")
 -- Set Color Theme (Scheme)
 vim.api.nvim_set_option_value("background", "light", {})
 vim.cmd("colorscheme edge")
+-- Change diagnostic error message color (override theme value)
+vim.cmd("hi! DiagnosticVirtualTextError guifg=#ff0000 gui=bold")
 
 -- Enable Telescope (finder / search) keymaps
 local telescope = require('telescope.builtin')
@@ -61,7 +63,6 @@ vim.lsp.config('tsserver', {
 vim.keymap.set('n', '<leader>er', vim.lsp.buf.rename, {})
 vim.keymap.set('n', '<leader>nd', vim.lsp.buf.definition, {})
 -- format by LSP
--- vim.keymap.set('n', '<leader>f', function()
---  vim.lsp.buf.format { async = true }
---end, {})
 vim.keymap.set('n', '<leader>.', vim.diagnostic.open_float, {})
+-- Show diagnostic message right in the code (virtual text)
+vim.diagnostic.config({ virtual_text = true, }) 
