@@ -83,3 +83,7 @@ require'treesitter-context'.setup{
   zindex = 20, -- The Z-index of the context window
   on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
 }
+
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
