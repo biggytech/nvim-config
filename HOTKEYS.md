@@ -59,6 +59,11 @@
 | Rename Variable | `<leader>er` | Mine |
 | Show diagnostic info at cursor | `<C>.` | Mine |
 
+# Quick Fix Window
+| Name                            | Command      | Where set |
+|-----------------------------------|--------------|------------|
+| Close | `<leader>q` | Mine |
+
 # Not set yet
 Show Hover Info
 Ctrl + ,

@@ -44,3 +44,5 @@ augroup end
 " Use ; in Normal mode to add a blank line below current
 map ; o<ESC>
 
+" Close Quickfix
+noremap <leader>q :cclose<cr>
