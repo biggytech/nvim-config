@@ -13,7 +13,7 @@
 # Insert in Normal mode
 | Name                       | Command               | Where set            |
 |-----------------------------|-----------------------|-----------------------|
-| Add blank line below current | `<Enter>`            | Mine         |
+| Add blank line below current | `;`            | Mine         |
 
 # Find - F
 | Name            | Command      | Where set            |
