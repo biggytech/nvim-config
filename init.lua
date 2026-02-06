@@ -18,7 +18,16 @@ local telescope = require('telescope.builtin')
 vim.keymap.set('n', '<leader>fp', telescope.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>ff', function()
 	telescope.live_grep({
-		glob_pattern = { "**/*", "!**/test/**/*", "!**/.idea/**/*", "!**/.git/**/*" },
+		glob_pattern = {
+			"**/*",
+			"!**/test/**/*",
+			"!**/.idea/**/*",
+			"!**/.git/**/*",
+			"!**/node_modules/**/*",
+			"!**/coverage/**/*",
+			"!**/build/**/*",
+			"!**/playwright-report/**/*",
+		},
 	})
 end, { desc = 'Telescope live grep' })
 
@@ -51,7 +60,14 @@ vim.lsp.enable('tsserver')
 vim.lsp.config('tsserver', {
   --  Make sure this is on your path
   cmd = {'typescript-language-server', '--stdio'},
-  filetypes = { 'typescript', "typescriptreact", "typescript.tsx" },
+  filetypes = {
+	  'typescript',
+	  "typescriptreact",
+	  "typescript.tsx",
+	  'javascript',
+	  "javascriptreact",
+	  "javascript.jsx",
+  },
   -- This is a hint to tell nvim to find your project root from a file within the tree
   root_dir = vim.fs.root(0, {'package.json', '.git'}),
   on_attach = on_attach,

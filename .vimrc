@@ -41,6 +41,6 @@ augroup jsFolds
     autocmd FileType javascript,typescript,json set foldmethod=syntax
 augroup end
 
-" Use <Enter> in Normal mode to add a blank line below current
-map <Enter> o<ESC>
+" Use ; in Normal mode to add a blank line below current
+map ; o<ESC>
 
