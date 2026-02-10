@@ -27,6 +27,7 @@ vim.keymap.set('n', '<leader>ff', function()
 			"!**/coverage/**/*",
 			"!**/build/**/*",
 			"!**/playwright-report/**/*",
+			"!**/*.log",
 		},
 	})
 end, { desc = 'Telescope live grep' })
