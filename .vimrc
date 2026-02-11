@@ -28,18 +28,8 @@ augroup Prettier
   au BufWritePre *.tsx,*.ts,*.js,*.jsx,*.css,*.scss set foldlevel=99 | Prettier | set foldlevel=3
 augroup END
 
-" This automatically folds files that you open,
-" based on indent, for everything indented for more than 1 level.
-set foldmethod=syntax
-set foldlevel=3
-
+" For some reason treesitter folding doesn't work without this
 let g:javaScript_fold=1 "activate folding by JS syntax
-augroup jsFolds
-    autocmd!
-    autocmd FileType javascript,typescript,json syntax region braceFold start="{" end="}" transparent fold
-    autocmd FileType javascript,typescript,json syntax sync fromstart
-    autocmd FileType javascript,typescript,json set foldmethod=syntax
-augroup end
 
 " Use ; in Normal mode to add a blank line below current
 map ; o<ESC>

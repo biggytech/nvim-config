@@ -84,6 +84,13 @@ vim.keymap.set('n', '<leader>.', vim.diagnostic.open_float, {})
 -- Show diagnostic message right in the code (virtual text)
 vim.diagnostic.config({ virtual_text = true, }) 
 
+-- Setup treesitter for AST folding
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "javascript", "typescript", "tsx", "html" },
+  highlight = { enable = true },
+  indent = { enable = true },
+}
+
 -- Plugin to show parent function / method on top of the editor
 require'treesitter-context'.setup{
   enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
@@ -252,4 +259,19 @@ vim.lsp.config('eslint', {
     end,
   },
   capabilities = capabilities,
+})
+
+-- Folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 3
+
+-- BufEnter ensures that treesitter finished loading
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.js", "*.jsx", "*.ts", "*.tsx"},
+  callback = function()
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
+    vim.opt_local.foldlevel = 3
+  end
 })
