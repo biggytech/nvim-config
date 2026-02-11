@@ -73,6 +73,12 @@
 | Switch Window | `<C-w><hjkl>` | Vim / Default |
 | Close Active Split | `<C-w>c` | Vim / Default |
 
+# Explorer Mode - :e
+| Name | Command | Where set |
+|---|---|---|
+| New Directory | `d` | Vim / Default |
+| New File | `%` | Vim / Default |
+
 # Not set yet
 Show Hover Info
 Ctrl + ,
