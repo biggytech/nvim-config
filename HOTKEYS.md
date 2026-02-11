@@ -36,6 +36,7 @@
 | Go To Declaration | `<leader>nd` | Mine |
 | Go to Prev LSP error | `[d` | Vim / Default |
 | Go to Next LSP error | `]d` | Vim / Default |
+| Show current buffer directory | `<leader>c` | Mine |
 
 # Paths - P
 | Name                            | Command      | Where set |
