@@ -64,6 +64,15 @@
 |-----------------------------------|--------------|------------|
 | Close | `<leader>q` | Mine |
 
+
+# Split Mode - <C-w>
+| Name | Command | Where set |
+|---|---|---|
+| Vertically | `<C-w>v` | Vim / Default |
+| Horizontally | `<C-w>s` | Vim / Default |
+| Switch Window | `<C-w><hjkl>` | Vim / Default |
+| Close Active Split | `<C-w>c` | Vim / Default |
+
 # Not set yet
 Show Hover Info
 Ctrl + ,
