@@ -24,8 +24,7 @@ syntax on
 " Run Prettier on :w
 augroup Prettier
   au!
-  " set foldlevel=99 is to fix Prettier truncating file when code folded
-  au BufWritePre *.tsx,*.ts,*.js,*.jsx,*.css,*.scss set foldlevel=99 | Prettier | set foldlevel=3
+  au BufWritePost *.tsx,*.ts,*.js,*.jsx,*.css,*.scss silent! execute 'PrettierCli --write ' . expand('%:p') | silent! edit!
 augroup END
 
 " For some reason treesitter folding doesn't work without this
