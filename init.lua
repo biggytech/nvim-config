@@ -75,8 +75,7 @@ vim.lsp.config('tsserver', {
 -- LSP keymaps
 vim.keymap.set('n', '<leader>er', vim.lsp.buf.rename, {})
 vim.keymap.set('n', '<leader>nd', vim.lsp.buf.definition, {})
--- format by LSP
-vim.keymap.set('n', '<leader>.', vim.diagnostic.open_float, {})
+-- format by LSP vim.keymap.set('n', '<leader>.', vim.diagnostic.open_float, {})
 -- Show diagnostic message right in the code (virtual text)
 vim.diagnostic.config({ virtual_text = true, }) 
 
@@ -286,3 +285,9 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 --vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx", })
 
 -- Enable TypeScript via the Language Server Protocol (LSP)
+
+
+-- Every wrapped line will continue visually indented (same amount of
+-- space as the beginning of that line), thus preserving horizontal
+-- blocks of text.
+vim.o.breakindent = true
