@@ -322,3 +322,8 @@ end, { desc = "Next todo comment" })
 vim.keymap.set("n", "[t", function()
   require("todo-comments").jump_prev({ keywords = { "TODO" } })
 end, { desc = "Previous todo comment" })
+
+-- Set custom colors for gitsigns highlight groups
+vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#48A111", bg = "NONE" }) -- Green for additions
+vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#F2B50B", bg = "NONE" }) -- Yellow for changes
+vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#C40C0C", bg = "NONE" }) -- Red for deletions
