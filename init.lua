@@ -291,3 +291,23 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 -- space as the beginning of that line), thus preserving horizontal
 -- blocks of text.
 vim.o.breakindent = true
+
+-- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- Keep signcolumn on by default
+-- Helps to avoid "flickering/shifting" of this column
+-- when error / sign appears / dissapears
+vim.o.signcolumn = 'yes'
+
+-- Sets how neovim will display certain whitespace characters in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`
+--
+--  Notice listchars is set using `vim.opt` instead of `vim.o`.
+--  It is very similar to `vim.o` but offers an interface for conveniently interacting with tables.
+--   See `:help lua-options`
+--   and `:help lua-guide-options`
+vim.o.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
