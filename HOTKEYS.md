@@ -37,6 +37,8 @@
 | Go to Prev LSP error | `[d` | Vim / Default |
 | Go to Next LSP error | `]d` | Vim / Default |
 | Show current buffer directory | `<leader>c` | Mine |
+| Go to Prev TODO comment | `[t` | Mine |
+| Go to Next TODO comment | `]t` | Mine |
 
 # Paths - P
 | Name                            | Command      | Where set |
