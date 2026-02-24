@@ -59,6 +59,7 @@
 |-----------------------------------|--------------|------------|
 | Rename Variable | `<leader>er` | Mine |
 | Show diagnostic info at cursor | `<C>.` | Mine |
+| Show hover info | `K` | Vim / Default |
 
 # Quick Fix Window
 | Name                            | Command      | Where set |
@@ -81,9 +82,6 @@
 | New File | `%` | Vim / Default |
 
 # Not set yet
-Show Hover Info
-Ctrl + ,
-
 UI - U
 Toggle Zen Mode
 Z
