@@ -60,7 +60,7 @@
 | Name                            | Command      | Where set |
 |-----------------------------------|--------------|------------|
 | Rename Variable | `<leader>er` | Mine |
-| Show diagnostic info at cursor | `<C>.` | Mine |
+| Show diagnostic info at cursor | `<leader>.` | Mine |
 | Show hover info | `K` | Vim / Default |
 
 # Quick Fix Window
