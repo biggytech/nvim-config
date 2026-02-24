@@ -311,3 +311,6 @@ vim.o.signcolumn = 'yes'
 --   and `:help lua-guide-options`
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+-- Show which line your cursor is on (highlight)
+vim.o.cursorline = true
