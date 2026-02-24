@@ -314,3 +314,11 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Show which line your cursor is on (highlight)
 vim.o.cursorline = true
+
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next({ keywords = { "TODO" } })
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev({ keywords = { "TODO" } })
+end, { desc = "Previous todo comment" })
