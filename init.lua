@@ -51,10 +51,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.hl.on_yank() end,
 })
 
--- Fix folding of files opened via Telescope
-vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx", })
-
--- Enable TypeScript via the Language Server Protocol (LSP)
 vim.lsp.enable('tsserver')
 
 -- Set the TS config for the LSP
@@ -272,6 +268,21 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   callback = function()
     vim.opt_local.foldmethod = "expr"
     vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
-    vim.opt_local.foldlevel = 3
+    -- Fix folding of files opened via Telescope
+    vim.cmd.normal("zx")
+  --   vim.opt_local.foldlevel = 99
   end
 })
+-- Set foldlevel only when buffer is first read/opened
+--vim.api.nvim_create_autocmd("BufReadPost", {
+--  pattern = {"*.js", "*.jsx", "*.ts", "*.tsx"},
+--  callback = function()
+    -- Only set foldlevel when buffer is loaded from disk
+--    vim.opt_local.foldlevel = 3
+--  end
+-- })
+
+-- Fix folding of files opened via Telescope
+--vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx", })
+
+-- Enable TypeScript via the Language Server Protocol (LSP)
