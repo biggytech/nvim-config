@@ -219,7 +219,8 @@ vim.lsp.config('eslint', {
 
         if #filtered_files > 0 then
           config.settings.experimental = config.settings.experimental or {}
-          config.settings.experimental.useFlatConfig = true
+	-- Causes `The eslint library loaded from <eslint-path> doesn't export a FlatESLint class.` error (https://github.com/neovim/nvim-lspconfig/issues/4318)
+	-- config.settings.experimental.useFlatConfig = true
           break
         end
       end
