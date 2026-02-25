@@ -328,3 +328,12 @@ end, { desc = "Previous todo comment" })
 vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#48A111", bg = "NONE" }) -- Green for additions
 vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#F2B50B", bg = "NONE" }) -- Yellow for changes
 vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#C40C0C", bg = "NONE" }) -- Red for deletions
+
+-- Change cursor colors
+vim.opt.guicursor = {
+  "n:block-NormalCursor",
+  "i:ver25-iCursor",
+  "v:block-NormalCursor",
+}
+vim.cmd("highlight NormalCursor guifg=NONE guibg=#314E63 gui=NONE")
+-- vim.cmd("highlight iCursor guifg=NONE guibg=#00FF00 gui=NONE") -- Insert mode
