@@ -261,16 +261,18 @@ vim.lsp.config('eslint', {
 -- Folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevel = 3
+--vim.opt.foldlevel = 3
 
 -- BufEnter ensures that treesitter finished loading
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+--vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+vim.api.nvim_create_autocmd({"BufReadPost"}, {
   pattern = {"*.js", "*.jsx", "*.ts", "*.tsx"},
   callback = function()
     vim.opt_local.foldmethod = "expr"
     vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
+    vim.opt_local.foldlevel = 3;
     -- Fix folding of files opened via Telescope
-    vim.cmd.normal("zx")
+--    vim.cmd.normal("zx")
   --   vim.opt_local.foldlevel = 99
   end
 })
