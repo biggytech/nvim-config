@@ -30,6 +30,14 @@ require('telescope').setup({
     }
 })
 
+-- Wrap Telescope previews
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TelescopePreviewerLoaded",
+  callback = function()
+    vim.wo.wrap = true
+  end,
+})
+
 -- Enable Telescope (finder / search) keymaps
 local telescope = require('telescope.builtin')
 vim.keymap.set('n', '<leader>fp', telescope.find_files, { desc = 'Telescope find files' })
