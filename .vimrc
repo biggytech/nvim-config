@@ -22,10 +22,10 @@ set number relativenumber
 syntax on
 
 " Run Prettier on :w
-augroup Prettier
-  au!
-  au BufWritePost *.tsx,*.ts,*.js,*.jsx,*.css,*.scss silent! execute 'PrettierCli --write ' . expand('%:p') | silent! edit!
-augroup END
+"augroup Prettier
+"  au!
+"  au BufWritePost *.tsx,*.ts,*.js,*.jsx,*.css,*.scss silent! execute 'PrettierCli --write ' . expand('%:p') | silent! edit!
+"augroup END
 
 " For some reason treesitter folding doesn't work without this
 let g:javaScript_fold=1 "activate folding by JS syntax

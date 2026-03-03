@@ -13,6 +13,23 @@ vim.cmd("colorscheme edge")
 -- Change diagnostic error message color (override theme value)
 vim.cmd("hi! DiagnosticVirtualTextError guifg=#C40C0C")
 
+-- Setup Telescope
+require('telescope').setup({
+    defaults = {
+	layout_strategy = "flex",
+	layout_config = {
+		horizontal = {
+			width = 0.999,
+	        	height = 0.999,
+      		},
+      		vertical = {
+			width = 0.999,
+	        	height = 0.999,
+      		},
+    	},
+    }
+})
+
 -- Enable Telescope (finder / search) keymaps
 local telescope = require('telescope.builtin')
 vim.keymap.set('n', '<leader>fp', telescope.find_files, { desc = 'Telescope find files' })
@@ -28,6 +45,8 @@ vim.keymap.set('n', '<leader>ff', function()
 			"!**/build/**/*",
 			"!**/playwright-report/**/*",
 			"!**/*.log",
+			"!**/package-lock.json",
+			"!**/open-api-docs.json",
 		},
 	})
 end, { desc = 'Telescope live grep' })
@@ -263,18 +282,22 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 --vim.opt.foldlevel = 3
 
+
+function set_file_folds()
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
+    -- Fix folding of files opened via Telescope
+    vim.cmd.normal("zx")
+    vim.opt_local.foldlevel = 99;
+  --   vim.opt_local.foldlevel = 99
+  end
+
+
 -- BufEnter ensures that treesitter finished loading
 --vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 vim.api.nvim_create_autocmd({"BufReadPost"}, {
   pattern = {"*.js", "*.jsx", "*.ts", "*.tsx"},
-  callback = function()
-    vim.opt_local.foldmethod = "expr"
-    vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
-    vim.opt_local.foldlevel = 3;
-    -- Fix folding of files opened via Telescope
---    vim.cmd.normal("zx")
-  --   vim.opt_local.foldlevel = 99
-  end
+  callback = set_file_folds
 })
 -- Set foldlevel only when buffer is first read/opened
 --vim.api.nvim_create_autocmd("BufReadPost", {
@@ -287,6 +310,18 @@ vim.api.nvim_create_autocmd({"BufReadPost"}, {
 
 -- Fix folding of files opened via Telescope
 --vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx", })
+--
+
+-- Run Prettier on :w
+vim.api.nvim_create_autocmd({"BufWritePost"}, {
+  pattern = { "*.tsx", "*.ts", "*.js", "*.jsx", "*.css", "*.scss" },
+  callback = function()
+  	vim.cmd('silent! PrettierCli --write ' .. vim.fn.expand('%:p'))
+  	vim.cmd('silent! edit!')
+	set_file_folds()
+  end
+})
+
 
 -- Enable TypeScript via the Language Server Protocol (LSP)
 
