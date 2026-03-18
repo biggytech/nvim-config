@@ -383,3 +383,9 @@ vim.opt.guicursor = {
 }
 vim.cmd("highlight NormalCursor guifg=NONE guibg=#314E63 gui=NONE")
 -- vim.cmd("highlight iCursor guifg=NONE guibg=#00FF00 gui=NONE") -- Insert mode
+
+-- Git Blame
+require('gitblame').setup({
+	message_template = "<date> • <summary> • <author>",
+        date_format = "%r",
+})

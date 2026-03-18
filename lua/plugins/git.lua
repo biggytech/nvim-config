@@ -15,4 +15,9 @@ return {
 			},
 		},
   	},
+	{
+		-- Git Blame
+		'f-person/git-blame.nvim',
+		commit = '5c536e2d4134d064aa3f41575280bc8a2a0e03d7'
+	}
 }
