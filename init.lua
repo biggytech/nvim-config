@@ -61,12 +61,16 @@ end, { desc = 'Telescope live grep' })
 
 -- Command to copy file path
 vim.keymap.set('n', '<leader>p', function ()
-	vim.fn.setreg('+', vim.fn.expand('%:p'))
+	local path = vim.fn.expand('%:p')
+	vim.fn.setreg('+', path)
+	vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, { desc = 'Copy Current Buffer Path' })
 
 -- Command to copy file relative path
 vim.keymap.set('n', '<leader>r', function ()
-	vim.fn.setreg('+', vim.fn.expand('%'))
+	local path = vim.fn.expand('%')
+	vim.fn.setreg('+', path)
+	vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, { desc = 'Copy Current Buffer Relative Path' })
 
 -- Highlight when yanking (copying) text
