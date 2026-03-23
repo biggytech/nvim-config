@@ -68,7 +68,7 @@ end, { desc = 'Copy Current Buffer Path' })
 
 -- Command to copy file relative path
 vim.keymap.set('n', '<leader>r', function ()
-	local path = vim.fn.expand('%')
+	local path = vim.fn.fnamemodify(vim.fn.expand('%:p'), ':~:.')
 	vim.fn.setreg('+', path)
 	vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, { desc = 'Copy Current Buffer Relative Path' })
