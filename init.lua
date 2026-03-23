@@ -65,7 +65,7 @@ vim.keymap.set('n', '<leader>p', function ()
 end, { desc = 'Copy Current Buffer Path' })
 
 -- Command to copy file relative path
-vim.keymap.set('n', '<leader>pr', function ()
+vim.keymap.set('n', '<leader>r', function ()
 	vim.fn.setreg('+', vim.fn.expand('%'))
 end, { desc = 'Copy Current Buffer Relative Path' })
 

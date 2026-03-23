@@ -44,7 +44,7 @@
 | Name                            | Command      | Where set |
 |-----------------------------------|--------------|------------|
 | Copy Current Buffer Path          | `<leader>p`  | Mine       |
-| Copy Current Buffer Relative Path | `<leader>pr` | Mine       |
+| Copy Current Buffer Relative Path | `<leader>r` | Mine       |
 
 # Folding
 | Name                          | Command      | Where set    |
@@ -82,6 +82,8 @@
 |---|---|---|
 | New Directory | `d` | Vim / Default |
 | New File | `%` | Vim / Default |
+| Rename File | `R` | Vim / Default |
+| Delete File | `D` | Vim / Default |
 
 # Not set yet
 UI - U
