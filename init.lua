@@ -58,6 +58,7 @@ vim.keymap.set('n', '<leader>ff', function()
 		},
 	})
 end, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fr', telescope.resume, { desc = 'Resume Telescope search' })
 
 -- Command to copy file path
 vim.keymap.set('n', '<leader>p', function ()
@@ -393,3 +394,4 @@ require('gitblame').setup({
 	message_template = "<date> • <summary> • <author>",
         date_format = "%r",
 })
+

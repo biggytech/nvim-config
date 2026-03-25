@@ -21,6 +21,7 @@
 | In current file | `/`          | Vim / Default          |
 | In Files        | `<leader>ff` | Telescope / Mine |
 | In Project      | `<leader>fp` | Telescope / Mine |
+| Resume Search | `<leader>fr` | Mine |
 
 # Autocompletion
 | Name                | Command      | Where set                         |
