@@ -7,7 +7,7 @@ return {
 		version = "1.5.0",
 		event = 'VimEnter',
 		dependencies = {
-			'nvim-lua/plenary.nvim'
+			{ 'nvim-lua/plenary.nvim', version = '0.1.4' }
 		},
 		opts = {
 			signs = false,

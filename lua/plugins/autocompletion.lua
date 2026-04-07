@@ -3,7 +3,9 @@ return {
   'saghen/blink.cmp',
   version = '1.8.0',
   -- optional: provides snippets for the snippet source
-  dependencies = { 'rafamadriz/friendly-snippets' },
+  dependencies = {
+			{ 'rafamadriz/friendly-snippets', commit = '6cd7280adead7f586db6fccbd15d2cac7e2188b9' }
+},
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
