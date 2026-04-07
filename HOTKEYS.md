@@ -70,6 +70,13 @@
 | Close | `<leader>q` | Mine |
 
 
+# Git - G
+| Name | Command | Where set |
+|-|-|-|
+| Git Blame | `<leader>gb` | Mine |
+| Git Open Commit URL | `<leader>go` | Mine |
+
+
 # Split Mode - <C-w>
 | Name | Command | Where set |
 |---|---|---|
