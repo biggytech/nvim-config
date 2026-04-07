@@ -390,8 +390,44 @@ vim.cmd("highlight NormalCursor guifg=NONE guibg=#314E63 gui=NONE")
 -- vim.cmd("highlight iCursor guifg=NONE guibg=#00FF00 gui=NONE") -- Insert mode
 
 -- Git Blame
-require('gitblame').setup({
+local git_blame = require('gitblame')
+git_blame.setup({
 	message_template = "<date> • <summary> • <author>",
         date_format = "%r",
 })
+-- Git Blame Custom Floating window
+vim.keymap.set('n', '<leader>g', function()
+	vim.lsp.util.open_floating_preview({
+		git_blame.get_current_blame_text()
+	})
+end, { desc = 'Open Git Blame Custom Floating window' })
+
+-- Lua Line
+require('lualine').setup({
+	options = {
+		theme = 'ayu_light',
+		globalstatus = true,
+	},
+	sections = {
+		lualine_a = {'mode'},
+		lualine_b = {'branch', 'diff', 'diagnostics'},
+		lualine_c = {
+			{
+				'filename',
+				path = 1
+			}
+		},
+		lualine_x = {
+			'lsp_status',
+		},
+		lualine_y = {'progress'},
+		lualine_z = {'location'}
+	}
+
+})
+
+-- Close Quickfix window
+vim.keymap.set('n', '<leader>q', function()
+	vim.cmd('cclose')
+end, { desc = '' })
 
