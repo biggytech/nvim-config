@@ -150,7 +150,7 @@ vim.diagnostic.config({ virtual_text = true, })
 
 -- Setup treesitter for AST folding
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "javascript", "typescript", "tsx", "html", "lua", "markdown" },
+  ensure_installed = { "javascript", "typescript", "tsx", "html", "lua", "markdown", "python" },
   highlight = { enable = true },
   indent = { enable = true },
 }
