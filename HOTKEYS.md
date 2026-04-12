@@ -62,6 +62,7 @@
 |-----------------------------------|--------------|------------|
 | Rename Variable | `<leader>er` | Mine |
 | Show diagnostic info at cursor | `<leader>.` | Mine |
+| Copy diagnostic info at cursor | `<leader>,` | Mine |
 | Show hover info | `K` | Vim / Default |
 
 # Quick Fix Window

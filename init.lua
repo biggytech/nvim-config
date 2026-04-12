@@ -465,5 +465,22 @@ require('lualine').setup({
 -- Close Quickfix window
 vim.keymap.set('n', '<leader>q', function()
 	vim.cmd('cclose')
-end, { desc = '' })
+end, { desc = 'Close Quickfix window' })
+
+-- Copy Diagnostic window contents
+vim.keymap.set('n', '<leader>,', function()
+	local line = vim.api.nvim_win_get_cursor(0)[1]
+	local diagnostics = vim.diagnostic.get(0, { lnum = line - 1 })
+
+	-- empty the register first
+	vim.fn.setreg('+', {}, 'V')
+
+	for _, diagnostic in ipairs(diagnostics) do
+	  vim.fn.setreg(
+	    '+',
+	    vim.fn.getreg('+') .. diagnostic["message"],
+	    'V'
+	  )
+	end
+end, { desc = 'Copy Diagnostic window contents' })
 
