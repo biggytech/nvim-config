@@ -83,8 +83,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.hl.on_yank() end,
 })
 
-vim.lsp.enable('tsserver')
+-- LSPs
 
+-- TypeScript
+vim.lsp.enable('tsserver')
 -- Set the TS config for the LSP
 vim.lsp.config('tsserver', {
   --  Make sure this is on your path
@@ -102,6 +104,40 @@ vim.lsp.config('tsserver', {
   on_attach = on_attach,
   capabilities = capabilities,
   -- optional settings = {...} go here, refer to language server code: https://github.com/typescript-language-server/typescript-language-server/blob/5c483349b7b4b6f79d523f8f4d854cbc5cec7ecd/src/ts-protocol.ts#L379
+})
+
+-- Python
+vim.lsp.enable('basedpyright')
+vim.lsp.config('basedpyright', {
+  --  Make sure this is on your path
+  cmd = { "basedpyright-langserver", "--stdio" },
+  filetypes = {
+	"python"
+  },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  -- This is a hint to tell nvim to find your project root from a file within the tree
+  root_markers = {
+    'pyrightconfig.json',
+    'pyproject.toml',
+    'setup.py',
+    'setup.cfg',
+    'requirements.txt',
+    'Pipfile',
+    '.git',
+  },
+  settings = {
+    basedpyright = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = 'openFilesOnly',
+        -- https://docs.basedpyright.com/latest/configuration/language-server-settings/
+        -- Explicitly setting `basedpyright.analysis.useLibraryCodeForTypes` is **discouraged** by the official docs.
+        -- Because it will override per-project configurations like `pyproject.toml`.
+        -- If left unset, its default value is `true`, and it can be correctly overridden by project config files.
+      },
+    },
+  },
 })
 
 -- LSP keymaps
@@ -334,9 +370,6 @@ vim.api.nvim_create_autocmd({"BufWritePost"}, {
 	set_file_folds()
   end
 })
-
-
--- Enable TypeScript via the Language Server Protocol (LSP)
 
 
 -- Every wrapped line will continue visually indented (same amount of

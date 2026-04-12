@@ -9,6 +9,7 @@ Just clone into `~/.config/nvim` and run NeoVim.
     - Ubuntu (Gnome Terminal): Terminal -> Preferences -> Select your profile -> Custom Font -> Select the Nerd font -> Save & Restart terminal
 5. `ripgrep`, or similar alternative, is a required dependency for the Telescope. Visit [here](https://github.com/BurntSushi/ripgrep#installation) for in
 stallation instructions.
+6. `uv tool install basedpyright` for Python LSP (`uv` is `astral-uv` package)
 
 ## Features
 - Light Color Theme
@@ -18,3 +19,4 @@ stallation instructions.
 ### LSP
 - TypeScript
 - ESLint
+- Python
