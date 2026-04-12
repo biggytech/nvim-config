@@ -135,6 +135,7 @@ vim.lsp.config('basedpyright', {
         -- Explicitly setting `basedpyright.analysis.useLibraryCodeForTypes` is **discouraged** by the official docs.
         -- Because it will override per-project configurations like `pyproject.toml`.
         -- If left unset, its default value is `true`, and it can be correctly overridden by project config files.
+	autoImportCompletions = true
       },
     },
   },
@@ -482,5 +483,7 @@ vim.keymap.set('n', '<leader>,', function()
 	    'V'
 	  )
 	end
+
+	vim.notify('Copied diagnostics info to the clipboard!')
 end, { desc = 'Copy Diagnostic window contents' })
 
