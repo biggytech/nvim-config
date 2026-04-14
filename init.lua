@@ -488,47 +488,47 @@ vim.keymap.set('n', '<leader>,', function()
 end, { desc = 'Copy Diagnostic window contents' })
 
 -- Debuggers
+-- TypeScript & JavaScript Debugger
+local js_debug_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug/out/src/dapDebugServer.js"
 local js_adapter = {
-  type = "server",
-  host = "localhost",
-  port = "${port}",
-  executable = {
-    command = "node",
-    -- 💀 Make sure to update this path to point to your installation
-    args = { vim.fn.stdpath("data") .. "/lazy/vscode-js-debug/out/src/dapDebugServer.js", "${port}"},
-  }
+	type = "server",
+	host = "localhost",
+	port = "${port}",
+	executable = {
+	command = "node",
+		args = { js_debug_path, "${port}" },
+	}
 }
-require("dap").adapters["pwa-node"] = js_adapter
-require("dap").adapters["node"] = function(cb, config)
+local function js_adapter_fn(cb, config)
 	-- Make pwa-node compatible with 'node' configs in .vscode/launch.json files
 	config.type = "pwa-node"
 	-- Fix the source map offset problem. vscode-js-debug needs smartStep to skip over unmapped compiled lines and land on the correct original line
 	config.smartStep = true
 	config.sourceMaps = true
 
-	                                                                                                                                                                                    
-    -- nvim-dap resolves ${workspaceFolder} but not the older ${workspaceRoot} alias
-    local workspace = vim.fn.getcwd()                                                                                                                                                   
-    local function resolve(val)                                                                                                                                                         
-      if type(val) == "string" then
-        return val:gsub("${workspaceRoot}", workspace):gsub("${workspaceFolder}", workspace)                                                                                            
-      end                                                                                                                                                                               
-      return val
-    end                                                                                                                                                                                 
-                  
-    config.localRoot = resolve(config.localRoot)
-    config.cwd = resolve(config.cwd)
-    if config.outFiles then                                                                                                                                                             
-      for i, v in ipairs(config.outFiles) do
-        config.outFiles[i] = resolve(v)                                                                                                                                                 
-      end         
-    end
 
+	-- Fix: nvim-dap resolves ${workspaceFolder} but not the older ${workspaceRoot} alias
+	local workspace = vim.fn.getcwd()
+	local function resolve(val)
+		if type(val) == "string" then
+			return val:gsub("${workspaceRoot}", workspace):gsub("${workspaceFolder}", workspace)
+		end
+		return val
+	end
 
+	config.localRoot = resolve(config.localRoot)
+	config.cwd = resolve(config.cwd)
+	if config.outFiles then
+		for i, v in ipairs(config.outFiles) do
+			config.outFiles[i] = resolve(v)
+		end
+	end
 
 	cb(js_adapter)
 end
--- Fix TreeSitter bug — nvim-dap reloads the buffer when stopped, which detaches the TreeSitter parser. Fix it with an event_stopped listener that reattaches highlighting
+
+require("dap").adapters["pwa-node"] = js_adapter_fn
+require("dap").adapters["node"] = js_adapter_fn
 
 --require("dapui").setup()
 
