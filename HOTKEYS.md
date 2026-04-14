@@ -81,6 +81,7 @@
 |-|-|-|
 | Toggle Breakpoint | `<leader>db` | Mine |
 | Continue / Start Debug Execution | `<leader>dc` | Mine |
+| Inspect Expression | `I` | Mine |
 
 
 # Split Mode - <C-w>

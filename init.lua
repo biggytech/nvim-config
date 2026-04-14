@@ -173,9 +173,11 @@ require'treesitter-context'.setup{
   on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
 }
 
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<Esc>', function()
+	-- Clear highlights on search when pressing <Esc> in normal mode
+	--  See `:help hlsearch`
+	vim.cmd("nohlsearch")
+end)
 
 -- Enable ESLint
 vim.lsp.enable('eslint')
@@ -530,8 +532,6 @@ end
 require("dap").adapters["pwa-node"] = js_adapter_fn
 require("dap").adapters["node"] = js_adapter_fn
 
---require("dapui").setup()
-
 vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
 
 vim.keymap.set('n', '<leader>db', function()
@@ -541,11 +541,14 @@ vim.keymap.set('n', '<leader>dc', function()
 	require('dap').continue()
 end, { desc = 'Continue Debug Execution (Resume / Start)' })
 
---[[
-local dap, dapui = require("dap"), require("dapui")
-dap.listeners.after.event_initialized["dapui_config"] = function()
-	dapui.open({ reset = true })
-end
-dap.listeners.before.event_terminated["dapui_config"] = dapui.close
-dap.listeners.before.event_exited["dapui_config"] = dapui.close
-]]--
+local widgets = require("dap.ui.widgets")
+vim.keymap.set("n", "I", widgets.hover, { desc = "Debug: Inspect variable" })
+vim.keymap.set("v", "I", widgets.hover, { desc = "Debug: Inspect selection" })
+-- Close debug window on Esc or q
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "dap-float",
+    callback = function()
+        vim.api.nvim_buf_set_keymap(0, "n", "q", "<cmd>close!<CR>", { noremap = true, silent = true })
+        vim.api.nvim_buf_set_keymap(0, "n", "<Esc>", "<cmd>close!<CR>", { noremap = true, silent = true })
+    end
+})

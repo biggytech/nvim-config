@@ -33,16 +33,6 @@ return {
 		version = "0.10.0",
 		lazy = true,
 		dependencies = {
-			{
-				'rcarriga/nvim-dap-ui',
-				version = '4.0.0',
-				dependencies = {
-					{
-						'nvim-neotest/nvim-nio',
-						version = '1.10.1'
-					}
-				}
-			},
 			-- lazy spec to build "microsoft/vscode-js-debug" from source
 			{
 				"microsoft/vscode-js-debug",
