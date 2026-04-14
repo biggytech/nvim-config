@@ -70,12 +70,17 @@
 |-----------------------------------|--------------|------------|
 | Close | `<leader>q` | Mine |
 
-
 # Git - G
 | Name | Command | Where set |
 |-|-|-|
 | Git Blame | `<leader>gb` | Mine |
 | Git Open Commit URL | `<leader>go` | Mine |
+
+# Debug - D
+| Name | Command | Where set |
+|-|-|-|
+| Toggle Breakpoint | `<leader>db` | Mine |
+| Continue / Start Debug Execution | `<leader>dc` | Mine |
 
 
 # Split Mode - <C-w>
@@ -98,8 +103,6 @@
 UI - U
 Toggle Zen Mode
 Z
-Toggle Debug Window
-D
 Toggle Tests (Run) Window
 T, R
 Toggle Services Window
@@ -127,13 +130,6 @@ IDE, Interface – I
 Settings
 S
 
-
-
-Debug - D
-Toggle Breakpoint
-B
-Resume Execution
-C
 
 Testing - T
 Run Current Test
