@@ -27,6 +27,7 @@ require('telescope').setup({
 	        	height = 0.999,
       		},
     	},
+	path_display = {'filename_first'},
     }
 })
 
