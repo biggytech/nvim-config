@@ -150,6 +150,14 @@ vim.keymap.set('n', '<leader>.', vim.diagnostic.open_float, {})
 -- Show diagnostic message right in the code (virtual text)
 vim.diagnostic.config({ virtual_text = true, }) 
 
+-- Tabbing and Indentation
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+
 -- Setup treesitter for AST folding
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "javascript", "typescript", "tsx", "html", "lua", "markdown", "python" },
