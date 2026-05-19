@@ -31,7 +31,7 @@ syntax on
 let g:javaScript_fold=1 "activate folding by JS syntax
 
 " Use ; in Normal mode to add a blank line below current
-map ; o<ESC>
+map ; o<ESC>k
 
 " Show current directory
 nnoremap <leader>c :e %:p:h<CR>

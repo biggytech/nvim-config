@@ -349,7 +349,7 @@ function set_file_folds()
     vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
     -- Fix folding of files opened via Telescope
     vim.cmd.normal("zx")
-    vim.opt_local.foldlevel = 99;
+    vim.opt_local.foldlevel = 99
   --   vim.opt_local.foldlevel = 99
   end
 
