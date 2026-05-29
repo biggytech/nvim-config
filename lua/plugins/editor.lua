@@ -40,5 +40,14 @@ return {
 				build = "npm i --ignore-scripts && npm run compile dapDebugServer && mv dist out"
 			},
 		},
-	}
+	},
+  -- Indent Lines Highlight
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    version = '3.9.1',
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+  }
 }
