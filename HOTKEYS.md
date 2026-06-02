@@ -41,6 +41,18 @@
 | Go to Prev TODO comment | `[t` | Mine |
 | Go to Next TODO comment | `]t` | Mine |
 
+# Navigation with Bookmarks
+| Name                 | Command | Where set    |
+|-----------------------|---------|---------------|
+| Add/remove bookmark at current line | `mm` | vim-bookmarks |
+| Jump to next bookmark in buffer | `mn` | vim-bookmarks |
+| Jump to previous bookmark in buffer | `mp` | vim-bookmarks |
+| Show all bookmarks (toggle) | `ma` | vim-bookmarks |
+| Clear bookmarks in current buffer only | `mc` | vim-bookmarks |
+| Clear bookmarks in all buffers | `mx` | vim-bookmarks |
+| Show list of bookmarked files (harpoon) | `<C-e>` | Mine |
+| Add a file to bookmarks (harpoon) | `<leader>a` | Mine |
+
 # Paths - P
 | Name                            | Command      | Where set |
 |-----------------------------------|--------------|------------|
@@ -82,7 +94,6 @@
 | Toggle Breakpoint | `<leader>db` | Mine |
 | Continue / Start Debug Execution | `<leader>dc` | Mine |
 | Inspect Expression | `I` | Mine |
-
 
 # Split Mode - <C-w>
 | Name | Command | Where set |

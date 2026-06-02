@@ -49,5 +49,17 @@ return {
     ---@module "ibl"
     ---@type ibl.config
     opts = {},
+  },
+  -- Bookmarks
+  {
+    'MattesGroeger/vim-bookmarks',
+    commit = '9cc5fa7ecc23b052bd524d07c85356c64b92aeef'
+  },
+  -- Harpoon
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim", version = '.0.1.4' },
+    commit = '87b1a3506211538f460786c23f98ec63ad9af4e5'
   }
 }
