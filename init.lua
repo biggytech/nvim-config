@@ -568,5 +568,22 @@ require("ibl").setup()
 -- Harpoon
 local harpoon = require("harpoon")
 harpoon:setup()
-vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+vim.keymap.set("n", "<leader>a", function()
+  harpoon:list():add()
+  vim.notify('File added to Harpoon!')
+end)
 vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+-- Highlight current file in the harpoon buffer list
+local harpoon_extensions = require("harpoon.extensions")
+harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
+
+-- Add vim.notify text for vim-bookmarks commands
+vim.keymap.set("n", "mc", function()
+  vim.cmd("BookmarkClear")
+  vim.notify('Cleared bookmarks in the current buffer!')
+end)
+vim.keymap.set("n", "mx", function()
+  vim.cmd("BookmarkClearAll")
+  vim.notify('Cleared bookmarks in the all buffers!')
+end)
+
