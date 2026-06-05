@@ -28,28 +28,8 @@ require('telescope').setup({
    		},
    	},
   	path_display = {'filename_first'},
-    extensions = {
-      -- Custom Telescope file browser
-      file_browser = {
-        theme = "ivy",
-        -- disables netrw and use telescope-file-browser in its place
-        hijack_netrw = true,
-        mappings = {
-          ["i"] = {
-            -- your custom insert mode mappings
-          },
-          ["n"] = {
-            -- your custom normal mode mappings
-          },
-        },
-      },
-    },
-  }
+  },
 })
-
--- To get telescope-file-browser loaded and working with telescope,
--- you need to call load_extension, somewhere after setup function:
-require("telescope").load_extension "file_browser"
 
 -- Wrap Telescope previews
 vim.api.nvim_create_autocmd("User", {
@@ -80,13 +60,6 @@ vim.keymap.set('n', '<leader>ff', function()
 	})
 end, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fr', telescope.resume, { desc = 'Resume Telescope search' })
--- open file_browser with the path of the current buffer
-vim.keymap.set("n", "<leader>fb", function()
-	require("telescope").extensions.file_browser.file_browser({
-    path = '%:p:h',
-    select_buffer = true
-  })
-end)
 
 -- Command to copy file path
 vim.keymap.set('n', '<leader>p', function ()

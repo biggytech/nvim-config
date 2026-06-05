@@ -13,8 +13,4 @@ return {
 			{ 'nvim-treesitter/nvim-treesitter', version = '0.10.0' }
     }
 	},
-  -- Search in specific folders
-  {
-    "nvim-telescope/telescope-file-browser.nvim",
-  }
 }

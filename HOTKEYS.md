@@ -22,7 +22,6 @@
 | In Files        | `<leader>ff` | Telescope / Mine |
 | In Project      | `<leader>fp` | Telescope / Mine |
 | Resume Search | `<leader>fr` | Mine |
-| Browse Current Buffer Folder | `<leader>fb` | Mine |
 
 # Autocompletion
 | Name                | Command      | Where set                         |
