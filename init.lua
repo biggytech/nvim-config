@@ -59,6 +59,24 @@ vim.keymap.set('n', '<leader>ff', function()
 		},
 	})
 end, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fc', function()
+	telescope.live_grep({
+		glob_pattern = {
+			"**/*",
+			-- "!**/test/**/*",
+			-- "!**/.idea/**/*",
+			-- "!**/.git/**/*",
+			-- "!**/node_modules/**/*",
+			-- "!**/coverage/**/*",
+			-- "!**/build/**/*",
+			-- "!**/playwright-report/**/*",
+			-- "!**/*.log",
+			-- "!**/package-lock.json",
+			-- "!**/open-api-docs.json",
+		},
+    search_dirs = { vim.fn.expand("%:p:h") }
+	})
+end, { desc = 'Telescope live grep in current directory' })
 vim.keymap.set('n', '<leader>fr', telescope.resume, { desc = 'Resume Telescope search' })
 
 -- Command to copy file path

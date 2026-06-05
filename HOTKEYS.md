@@ -19,9 +19,10 @@
 | Name            | Command      | Where set            |
 |-----------------|---------------|-----------------------|
 | In current file | `/`          | Vim / Default          |
-| In Files        | `<leader>ff` | Telescope / Mine |
-| In Project      | `<leader>fp` | Telescope / Mine |
+| In Files        | `<leader>ff` | Mine |
+| In Project      | `<leader>fp` | Mine |
 | Resume Search | `<leader>fr` | Mine |
+| Search In Files in Current Directory | `<leader>fc` | Mine |
 
 # Autocompletion
 | Name                | Command      | Where set                         |
