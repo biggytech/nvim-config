@@ -15,20 +15,20 @@ vim.cmd("hi! DiagnosticVirtualTextError guifg=#C40C0C")
 
 -- Setup Telescope
 require('telescope').setup({
-    defaults = {
-	layout_strategy = "flex",
-	layout_config = {
-		horizontal = {
-			width = 0.999,
-	        	height = 0.999,
-      		},
-      		vertical = {
-			width = 0.999,
-	        	height = 0.999,
-      		},
-    	},
-	path_display = {'filename_first'},
-    }
+  defaults = {
+  	layout_strategy = "flex",
+  	layout_config = {
+  		horizontal = {
+	  		width = 0.999,
+	     	height = 0.999,
+   		},
+   		vertical = {
+	  		width = 0.999,
+	     	height = 0.999,
+   		},
+   	},
+  	path_display = {'filename_first'},
+  }
 })
 
 -- Wrap Telescope previews
@@ -432,7 +432,7 @@ vim.opt.guicursor = {
   "v:block-NormalCursor",
 }
 vim.cmd("highlight NormalCursor guifg=NONE guibg=#314E63 gui=NONE")
--- vim.cmd("highlight iCursor guifg=NONE guibg=#00FF00 gui=NONE") -- Insert mode
+vim.cmd("highlight iCursor guifg=NONE guibg=#000000 gui=NONE") -- Insert mode
 
 -- Git Blame
 local git_blame = require('gitblame')
