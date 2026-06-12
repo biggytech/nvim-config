@@ -41,8 +41,8 @@ vim.api.nvim_create_autocmd("User", {
 
 -- Enable Telescope (finder / search) keymaps
 local telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>fp', telescope.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>ff', function()
+vim.keymap.set('n', '<leader>p', telescope.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>f', function()
 	telescope.live_grep({
 		glob_pattern = {
 			"**/*",
