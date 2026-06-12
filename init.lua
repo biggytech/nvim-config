@@ -170,18 +170,19 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 
 
 -- Tabbing and Indentation
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
+-- vim.opt.autoindent = true
+-- vim.opt.smartindent = true
+-- vim.opt.expandtab = true
+-- vim.opt.tabstop = 2
+-- vim.opt.shiftwidth = 2
+-- vim.opt.softtabstop = 2
+require('guess-indent').setup {}
 
 -- Setup treesitter for AST folding
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "javascript", "typescript", "tsx", "html", "lua", "markdown", "python" },
   highlight = { enable = true },
-  indent = { enable = true },
+  indent = { enable = false },
 }
 
 -- Plugin to show parent function / method on top of the editor
