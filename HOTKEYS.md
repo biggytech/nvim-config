@@ -4,6 +4,11 @@
 # Enter / Exit Insert mode
 `<C-Space>`
 
+# Hotkeys
+| Key | Name | Where set |
+|---|---|---|
+| `<leader>i` | Format file | Mine |
+
 # Yank (Copy) - Y
 | Name                       | Command                 | Where set            |
 |-----------------------------|--------------------------|-----------------------|

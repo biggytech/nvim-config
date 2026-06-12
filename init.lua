@@ -410,16 +410,12 @@ vim.api.nvim_create_autocmd({"BufReadPost"}, {
 --vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx", })
 --
 
--- Run Prettier on :w
-vim.api.nvim_create_autocmd({"BufWritePost"}, {
-  pattern = { "*.tsx", "*.ts", "*.js", "*.jsx", "*.css", "*.scss" },
-  callback = function()
-  	vim.cmd('silent! PrettierCli --write ' .. vim.fn.expand('%:p'))
-  	vim.cmd('silent! edit!')
+-- Run Prettier on hotkey
+vim.keymap.set('n', '<leader>i', function()
+  vim.cmd('silent! PrettierCli --write ' .. vim.fn.expand('%:p'))
+  vim.cmd('silent! edit!')
 	set_file_folds()
-  end
-})
-
+end, { desc = 'Run Prettier on File' })
 
 -- Every wrapped line will continue visually indented (same amount of
 -- space as the beginning of that line), thus preserving horizontal
