@@ -166,7 +166,26 @@ vim.keymap.set('n', '<leader>nd', vim.lsp.buf.definition, {})
 -- Show LSP diagnostic window
 vim.keymap.set('n', '<leader>.', vim.diagnostic.open_float, {})
 -- Show diagnostic message right in the code (virtual text)
-vim.diagnostic.config({ virtual_text = true, }) 
+vim.diagnostic.config({
+  virtual_text = true,
+}) 
+-- Create an augroup for managing diagnostic visibility
+local diagnostic_group = vim.api.nvim_create_augroup("DiagnosticInsertToggle", { clear = true })
+-- Hide virtual text when entering Insert Mode
+vim.api.nvim_create_autocmd("InsertEnter", {
+  group = diagnostic_group,
+  callback = function()
+    vim.diagnostic.config({ virtual_text = false })
+  end,
+})
+-- Show virtual text when leaving Insert Mode
+vim.api.nvim_create_autocmd("InsertLeave", {
+  group = diagnostic_group,
+  callback = function()
+    vim.diagnostic.config({ virtual_text = true })
+  end,
+})
+
 
 -- Tabbing and Indentation
 vim.opt.autoindent = true
