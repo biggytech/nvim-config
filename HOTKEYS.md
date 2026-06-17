@@ -8,8 +8,10 @@
 | Key | Name | Where set |
 |---|---|---|
 | `<leader>i` | Format file | Mine |
-| `<leader>f` | Search in files | Mine |
-| `<leader>p` | Search in project | Mine |
+| `<leader>ff` | Search in files | Mine |
+| `<leader>fp` | Search in project | Mine |
+| `<leader>fr` | Resume last search | Mine |
+| `<leader>fc` | Search in current directory | Mine |
 
 # Yank (Copy) - Y
 | Name                       | Command                 | Where set            |
@@ -26,8 +28,6 @@
 | Name            | Command      | Where set            |
 |-----------------|---------------|-----------------------|
 | In current file | `/`          | Vim / Default          |
-| Resume Search | `<leader>fr` | Mine |
-| Search In Files in Current Directory | `<leader>fc` | Mine |
 
 # Autocompletion
 | Name                | Command      | Where set                         |

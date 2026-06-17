@@ -41,8 +41,8 @@ vim.api.nvim_create_autocmd("User", {
 
 -- Enable Telescope (finder / search) keymaps
 local telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>p', telescope.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>f', function()
+vim.keymap.set('n', '<leader>fp', telescope.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>ff', function()
 	telescope.live_grep({
 		glob_pattern = {
 			"**/*",
@@ -151,54 +151,25 @@ vim.keymap.set('n', '<leader>.', vim.diagnostic.open_float, {})
 -- Show diagnostic message right in the code (virtual text)
 -- 1. Setup diagnostic UI defaults
 vim.diagnostic.config({
-  virtual_text = false,
-  signs = false,
-  underline = false,
+  virtual_text = true,
 })
+-- Create an augroup for managing diagnostic visibility
+local diagnostic_group = vim.api.nvim_create_augroup("DiagnosticInsertToggle", { clear = true })
 
-local save_diag_group = vim.api.nvim_create_augroup("DiagnosticSaveOnly", { clear = true })
-
--- 2. Hide diagnostics ONLY when the buffer is actively dirty/modified
-vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
-  group = save_diag_group,
+-- Hide virtual text when entering Insert Mode
+vim.api.nvim_create_autocmd("InsertEnter", {
+  group = diagnostic_group,
   callback = function()
-    -- Only strip diagnostics if the buffer has actual unsaved modifications
-    if vim.bo.modified then
-      vim.diagnostic.config({
-        virtual_text = false,
-        signs = false,
-        underline = false,
-      })
-    end
+    vim.diagnostic.config({ virtual_text = false })
   end,
 })
-
--- 3. Show diagnostics after a successful file save
-vim.api.nvim_create_autocmd("BufWritePost", {
-  group = save_diag_group,
+-- Show virtual text when leaving Insert Mode
+vim.api.nvim_create_autocmd("InsertLeave", {
+  group = diagnostic_group,
   callback = function()
-    vim.diagnostic.config({
-      virtual_text = true,
-      signs = true,
-      underline = true,
-    })
+    vim.diagnostic.config({ virtual_text = true })
   end,
 })
-
--- 4. Force-display diagnostics right when opening a clean file
-vim.api.nvim_create_autocmd({ "BufReadPost", "LspAttach" }, {
-  group = save_diag_group,
-  callback = function()
-    vim.diagnostic.config({
-      virtual_text = true,
-      signs = true,
-      underline = true,
-    })
-  end,
-})
-
-
-
 
 -- Tabbing and Indentation
 -- vim.opt.autoindent = true
