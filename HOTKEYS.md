@@ -7,7 +7,7 @@
 # Hotkeys
 | Key | Name | Where set |
 |---|---|---|
-| `<leader>i` | Format file | Mine |
+| `<leader>s` | Save & Format file | Mine |
 | `<leader>ff` | Search in files | Mine |
 | `<leader>fp` | Search in project | Mine |
 | `<leader>fr` | Resume last search | Mine |

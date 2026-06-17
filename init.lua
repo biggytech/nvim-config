@@ -366,13 +366,12 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 --vim.opt.foldlevel = 3
 
 
+-- Fix folding of files opened via Telescope
 function set_file_folds()
     vim.opt_local.foldmethod = "expr"
     vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
-    -- Fix folding of files opened via Telescope
     vim.cmd.normal("zx")
     vim.opt_local.foldlevel = 99
-  --   vim.opt_local.foldlevel = 99
   end
 
 
@@ -395,12 +394,15 @@ vim.api.nvim_create_autocmd({"BufReadPost"}, {
 --vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx", })
 --
 
--- Run Prettier on hotkey
-vim.keymap.set('n', '<leader>i', function()
+-- Save file & Run Prettier on hotkey
+vim.keymap.set('n', '<leader>s', function()
+  -- Save the file silently
+  vim.cmd('silent w')
   vim.cmd('silent! PrettierCli --write ' .. vim.fn.expand('%:p'))
   vim.cmd('silent! edit!')
+	vim.notify('File saved!')
 	set_file_folds()
-end, { desc = 'Run Prettier on File' })
+end, { desc = 'Save & Format File' })
 
 -- Every wrapped line will continue visually indented (same amount of
 -- space as the beginning of that line), thus preserving horizontal
