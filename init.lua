@@ -398,8 +398,14 @@ vim.api.nvim_create_autocmd({"BufReadPost"}, {
 vim.keymap.set('n', '<leader>s', function()
   -- Save the file silently
   vim.cmd('silent w')
+
+  vim.cmd('silent! TSToolsAddMissingImports')
+
   vim.cmd('silent! PrettierCli --write ' .. vim.fn.expand('%:p'))
   vim.cmd('silent! edit!')
+
+  vim.cmd('silent w')
+
 	vim.notify('File saved!')
 	set_file_folds()
 end, { desc = 'Save & Format File' })
