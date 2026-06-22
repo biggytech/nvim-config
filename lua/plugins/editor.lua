@@ -43,12 +43,9 @@ return {
 	},
   -- Indent Lines Highlight
   {
-    'lukas-reineke/indent-blankline.nvim',
-    version = '3.9.1',
-    main = "ibl",
-    ---@module "ibl"
-    ---@type ibl.config
-    opts = {},
+    'shellraining/hlchunk.nvim',
+    commit = '06f51922ca43d5cdacf96725c106405fe064c59e',
+    event = { "BufReadPre", "BufNewFile" },
   },
   -- Bookmarks
   {

@@ -589,7 +589,28 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Indent Lines Highlight
-require("ibl").setup()
+-- require("ibl").setup()
+require("hlchunk").setup({
+  chunk = {
+    enable = true,
+  },
+  indent = {
+    enable = true,
+    -- Rainbow style
+    -- style = {
+    -- "#FF0000",
+    --  "#FF7F00",
+    --  "#FFFF00",
+    --  "#00FF00",
+    --  "#00FFFF",
+    --  "#0000FF",
+    --  "#8B00FF",
+    -- },
+  },
+  line_num = {
+    enable = true,
+  },
+})
 
 -- Harpoon
 local harpoon = require("harpoon")
