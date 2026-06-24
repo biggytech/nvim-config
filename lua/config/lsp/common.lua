@@ -67,3 +67,6 @@ vim.keymap.set('n', '<leader>,', function()
 
 	vim.notify('Copied diagnostics info to the clipboard!')
 end, { desc = 'Copy Diagnostic window contents' })
+
+-- Disable LSP log to save memory
+vim.lsp.set_log_level("off")
