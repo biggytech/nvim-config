@@ -93,3 +93,27 @@ vim.api.nvim_create_autocmd({ "TextYankPost", "CursorMoved", "InsertEnter", "Buf
   callback = clear_preview,
 })
 
+-- 1. Create unique highlight groups for LSP windows only
+vim.api.nvim_set_hl(0, "LspFloatNormal", { bg = "#e3e3e3", fg = "#444444" })
+vim.api.nvim_set_hl(0, "LspFloatBorder", { bg = "#e3e3e3", fg = "#444444" })
+
+-- 2. Define the exact options for the floating windows
+local float_options = {
+  border = "rounded",
+  winhighlight = "Normal:LspFloatNormal,FloatBorder:LspFloatBorder",
+}
+
+-- 3. Apply strictly to Diagnostics
+vim.diagnostic.config({
+  float = float_options,
+})
+
+-- 4. Apply strictly to LSP Hover (K) and Signature Help via Keymaps
+-- This overrides any hidden defaults or handler rewrites from plugins
+vim.keymap.set("n", "K", function()
+  vim.lsp.buf.hover(float_options)
+end, { desc = "LSP Hover Documentation" })
+
+vim.keymap.set("n", "<C-k>", function()
+  vim.lsp.buf.signature_help(float_options)
+end, { desc = "LSP Signature Help" })
