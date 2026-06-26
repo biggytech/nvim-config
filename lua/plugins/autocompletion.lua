@@ -50,6 +50,7 @@ return {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
 
+    -- Show function signature when typing arguments
     signature = { enabled = true },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
@@ -57,7 +58,10 @@ return {
     -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
     --
     -- See the fuzzy documentation for more information
-    fuzzy = { implementation = "prefer_rust" }
+    --
+    --
+    -- Disabled because it sauses bad performance
+    -- fuzzy = { implementation = "prefer_rust" }
   },
   opts_extend = { "sources.default" }
 }
