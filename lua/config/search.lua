@@ -13,6 +13,22 @@ require('telescope').setup({
    		},
    	},
   	path_display = {'filename_first'},
+	mappings = {
+	      i = {
+		-- Overwrite standard Neovim paste shortcuts inside Telescope (Ctrl-v only)
+	        ["<C-v>"] = function()
+        	  local cb_text = vim.fn.getreg('+')
+	          local clean_text = cb_text:gsub("[\r\n]+", " ") -- Strips both Unix and Windows newlines
+        	  vim.api.nvim_feedkeys(clean_text, 'n', true)
+	        end,
+        	-- Overwrite the bracketed paste mode that terminals use for Ctrl-Shift-V
+	        ["<Paste>"] = function()
+        	  local cb_text = vim.fn.getreg('+')
+	          local clean_text = cb_text:gsub("[\r\n]+", " ")
+        	  vim.api.nvim_feedkeys(clean_text, 'n', true)
+	        end,
+      		},
+    	},
   },
 })
 
