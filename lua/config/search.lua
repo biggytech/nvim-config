@@ -1,3 +1,9 @@
+function paste_without_new_lines()
+	local cb_text = vim.fn.getreg('+')
+	local clean_text = cb_text:gsub("[\r\n]+", " ") -- Strips both Unix and Windows newlines
+        vim.api.nvim_feedkeys(clean_text, 'n', true)
+end
+
 -- Setup Telescope
 require('telescope').setup({
   defaults = {
@@ -16,17 +22,9 @@ require('telescope').setup({
 	mappings = {
 	      i = {
 		-- Overwrite standard Neovim paste shortcuts inside Telescope (Ctrl-v only)
-	        ["<C-v>"] = function()
-        	  local cb_text = vim.fn.getreg('+')
-	          local clean_text = cb_text:gsub("[\r\n]+", " ") -- Strips both Unix and Windows newlines
-        	  vim.api.nvim_feedkeys(clean_text, 'n', true)
-	        end,
+	        ["<C-v>"] = paste_without_new_lines,
         	-- Overwrite the bracketed paste mode that terminals use for Ctrl-Shift-V
-	        ["<Paste>"] = function()
-        	  local cb_text = vim.fn.getreg('+')
-	          local clean_text = cb_text:gsub("[\r\n]+", " ")
-        	  vim.api.nvim_feedkeys(clean_text, 'n', true)
-	        end,
+	        ["<Paste>"] = paste_without_new_lines,
       		},
     	},
   },
