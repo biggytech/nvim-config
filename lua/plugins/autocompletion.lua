@@ -7,8 +7,6 @@ return {
 			{ 'rafamadriz/friendly-snippets', commit = '6cd7280adead7f586db6fccbd15d2cac7e2188b9' }
 },
 
-  ---@module 'blink.cmp'
-  ---@type blink.cmp.Config
   opts = {
     -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
     -- 'super-tab' for mappings similar to vscode (tab to accept)
@@ -23,7 +21,7 @@ return {
     --
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = {
-	    preset = 'enter',
+	    preset = 'super-tab',
       	    -- disable a keymap from the preset
             ['<C-space>'] = false,
     },
@@ -34,8 +32,13 @@ return {
       nerd_font_variant = 'mono',
     },
 
+    completion = {
     -- (Default) Only show the documentation popup when manually triggered
-    completion = { documentation = { auto_show = true } },
+      documentation = { auto_show = true },
+      -- Disable auto brackets
+      -- some LSPs may add auto brackets themselves anyway
+      accept = { auto_brackets = { enabled = false }, },
+    },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
