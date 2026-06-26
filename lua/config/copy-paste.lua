@@ -56,3 +56,5 @@ vim.api.nvim_create_autocmd({ "TextYankPost", "CursorMoved", "InsertEnter", "Buf
   callback = clear_preview,
 })
 
+-- Paste from system clipboard in insert mode using Ctrl-V
+vim.keymap.set('i', '<C-v>', '<C-r>+', { noremap = true, silent = true })

@@ -25,8 +25,8 @@ require('telescope').setup({
 	        ["<C-v>"] = paste_without_new_lines,
         	-- Overwrite the bracketed paste mode that terminals use for Ctrl-Shift-V
 	        ["<Paste>"] = paste_without_new_lines,
-      		},
-    	},
+              },
+	},
   },
 })
 
