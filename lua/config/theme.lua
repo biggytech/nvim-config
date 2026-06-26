@@ -67,3 +67,6 @@ end, { desc = "LSP Hover Documentation" })
 vim.keymap.set("n", "<C-k>", function()
   vim.lsp.buf.signature_help(float_options)
 end, { desc = "LSP Signature Help" })
+
+-- Change autocompletion Ghost Text style
+vim.api.nvim_set_hl(0, "BlinkCmpGhostText", { fg = "#6272A4", italic = true })

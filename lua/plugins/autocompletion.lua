@@ -33,11 +33,15 @@ return {
     },
 
     completion = {
-    -- (Default) Only show the documentation popup when manually triggered
+      -- (Default) Only show the documentation popup when manually triggered
       documentation = { auto_show = true },
+
       -- Disable auto brackets
       -- some LSPs may add auto brackets themselves anyway
       accept = { auto_brackets = { enabled = false }, },
+
+      -- Display a preview of the selected item on the current line
+      ghost_text = { enabled = true },
     },
 
     -- Default list of enabled providers defined so that you can extend it
