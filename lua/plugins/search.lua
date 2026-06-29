@@ -13,4 +13,11 @@ return {
 			{ 'nvim-treesitter/nvim-treesitter', version = '0.10.0' }
     }
 	},
+	-- Group Live grep results by file
+        {
+                "fdschmidt93/telescope-egrepify.nvim",
+                commit = 'cd9342b95c1a8cff2e41ba5041ae3912f47595cc',
+                -- Deps already installed
+                -- dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+        }
 }

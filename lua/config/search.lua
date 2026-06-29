@@ -28,7 +28,15 @@ require('telescope').setup({
               },
 	},
   },
+  extensions = {
+	egrepify = {
+		-- For better performance
+		 results_ts_hl = true,
+	}
+  }
 })
+
+require "telescope".load_extension "egrepify"
 
 -- Wrap Telescope previews
 vim.api.nvim_create_autocmd("User", {
@@ -40,39 +48,46 @@ vim.api.nvim_create_autocmd("User", {
 
 -- Enable Telescope (finder / search) keymaps
 local telescope = require('telescope.builtin')
+local egrepify = require('telescope').extensions.egrepify
 vim.keymap.set('n', '<leader>fp', telescope.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>ff', function()
-	telescope.live_grep({
-		glob_pattern = {
-			"**/*",
-			"!**/test/**/*",
-			"!**/.idea/**/*",
-			"!**/.git/**/*",
-			"!**/node_modules/**/*",
-			"!**/coverage/**/*",
-			"!**/build/**/*",
-			"!**/playwright-report/**/*",
-			"!**/*.log",
-			"!**/package-lock.json",
-			"!**/open-api-docs.json",
+	egrepify.egrepify({
+		vimgrep_arguments = {
+			"rg",
+			"--color=never",
+			"--no-heading",
+			"--with-filename",
+			"--line-number",
+			"--column",
+			"--smart-case",
+			-- My excludes
+			"-g", "**/*",
+			"-g", "!**/test/**/*",
+			"-g", "!**/.idea/**/*",
+			"-g", "!**/.git/**/*",
+			"-g", "!**/node_modules/**/*",
+			"-g", "!**/coverage/**/*",
+			"-g", "!**/build/**/*",
+			"-g", "!**/playwright-report/**/*",
+			"-g", "!**/*.log",
+			"-g", "!**/package-lock.json",
+			"-g", "!**/open-api-docs.json",
 		},
 	})
 end, { desc = 'Telescope live grep' })
 
 vim.keymap.set('n', '<leader>fc', function()
-	telescope.live_grep({
-		glob_pattern = {
-			"**/*",
-			-- "!**/test/**/*",
-			-- "!**/.idea/**/*",
-			-- "!**/.git/**/*",
-			-- "!**/node_modules/**/*",
-			-- "!**/coverage/**/*",
-			-- "!**/build/**/*",
-			-- "!**/playwright-report/**/*",
-			-- "!**/*.log",
-			-- "!**/package-lock.json",
-			-- "!**/open-api-docs.json",
+	egrepify.egrepify({
+		vimgrep_arguments = {
+			"rg",
+			"--color=never",
+			"--no-heading",
+			"--with-filename",
+			"--line-number",
+			"--column",
+			"--smart-case",
+			-- My excludes
+			"-g", "**/*",
 		},
     search_dirs = { vim.fn.expand("%:p:h") }
 	})
