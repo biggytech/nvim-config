@@ -1,5 +1,5 @@
 ## How to install
-Just clone into `~/.config/nvim` and run NeoVim.
+Create symlink `ln -s ~/dev/nvim-config ~/.config/nvim`
 
 ## Dependencies
 1. `npm install --global vscode-langservers-extracted@4.8.0` for ESLint
