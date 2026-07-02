@@ -72,6 +72,7 @@ vim.keymap.set('n', '<leader>ff', function()
 			"-g", "!**/*.log",
 			"-g", "!**/package-lock.json",
 			"-g", "!**/open-api-docs.json",
+			"-g", "!**/.next/**/*",
 		},
 	})
 end, { desc = 'Telescope live grep' })
