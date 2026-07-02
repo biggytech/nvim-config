@@ -61,7 +61,6 @@ vim.keymap.set('n', '<leader>ff', function()
 			"--column",
 			"--smart-case",
 			-- My excludes
-			"-g", "**/*",
 			"-g", "!**/test/**/*",
 			"-g", "!**/.idea/**/*",
 			"-g", "!**/.git/**/*",
@@ -87,8 +86,6 @@ vim.keymap.set('n', '<leader>fc', function()
 			"--line-number",
 			"--column",
 			"--smart-case",
-			-- My excludes
-			"-g", "**/*",
 		},
     search_dirs = { vim.fn.expand("%:p:h") }
 	})
